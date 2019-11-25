@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Link } from "react-router-dom"; import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
@@ -25,6 +24,7 @@ class Blood extends Component {
                     blood: res.data,
                     glucose: "",
                     ketone: ""
+
                 })
             )
             .catch(err => console.log(err));
@@ -87,9 +87,10 @@ class Blood extends Component {
                   </FormBtn>
                         </form>
                     </Col>
+
                     <Col size="md-6 sm12">
                         <Jumbotron>
-                            <h1>My Blood Metrics</h1>
+                            <h1>Your Blood Metrics</h1>
                         </Jumbotron>
                         {this.state.blood.length ? (
                             <List>
@@ -97,7 +98,7 @@ class Blood extends Component {
                                     <ListItem key={blood._id}>
                                         <Link to={"../bloods/" + blood._id}>
                                             <strong>
-                                                {blood.glucose} and {blood.ketone}
+                                                {(blood.glucose / 18.2) / (blood.ketone)}
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteBlood(blood._id)} />
