@@ -10,6 +10,22 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+//Add routes, both API and view
+app.use(routes);
+
+//Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Blood', {
+    useNewUrlParser: true
+});
+
+
+//Configuration
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', routes);
+
+
 //Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
@@ -20,23 +36,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-//Add routes, both API and view
-app.use(routes);
-
-//Connect to the Mongo DB
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reactbloodlist', {
-    useNewUrlParser: true
-});
-
-//Config Build folder for heroku
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); //relative path
-    });
-}
 
 //Start the API server
 app.listen(PORT, function () {
