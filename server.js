@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 //Connect to the Mongo DB
-const db = require('./models');
+const db = require('./models/index');
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/reactbloodlist';
 mongoose.connect(MONGODB_URI);
