@@ -27,7 +27,9 @@ app.use(routes);
 const db = require('./models/index');
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/reactbloodlist';
-mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reactbloodlist', {
+    useNewUrlParser: true
+});
 
 
 //Start the API server
