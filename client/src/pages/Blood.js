@@ -66,12 +66,22 @@ class Blood extends Component {
                             <h1>Track your Glucose Ketone Index</h1>
                         </Jumbotron>
                         <form>
+                            <label>
+                                Input Fasting Glucose level:
+
+                            </label>
+
                             <Input
                                 value={this.state.glucose}
                                 onChange={this.handleInputChange}
                                 name="glucose"
                                 placeholder="Glucose (Required in (mg/dL))"
                             />
+                            <label>
+                                Input Fasting Ketone Level:
+
+                            </label>
+
                             <Input
                                 value={this.state.ketone}
                                 onChange={this.handleInputChange}
