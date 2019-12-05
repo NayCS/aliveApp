@@ -5,7 +5,8 @@ import API from "../utils/API";
 import { Link } from "react-router-dom"; import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
-
+import ImageKGI from "../components/Images";
+import ImageMountain from "../components/imagines2";
 
 
 class Blood extends Component {
@@ -138,6 +139,7 @@ class Blood extends Component {
 
                         </form>
 
+                        <ImageKGI />
 
 
                     </Col>
@@ -146,6 +148,9 @@ class Blood extends Component {
                         <Jumbotron>
                             <h1>Your Blood Metrics</h1>
                         </Jumbotron>
+
+                        <ImageMountain />
+
                         <label>
                             <strong>
                                 Your Glucose Ketone Index Level:
