@@ -61,7 +61,7 @@ class Blood extends Component {
 
     render() {
         return (
-            <Container fluid style={{ BackgroundColor: "#008080" }} >
+            <Container fluid>
                 <Row>
                     <Col size="md-7">
                         <Jumbotron>
@@ -134,11 +134,6 @@ class Blood extends Component {
                             >
                                 Get your GKI
                             </FormBtn>
-
-
-
-
-
 
 
                         </form>
