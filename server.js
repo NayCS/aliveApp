@@ -31,8 +31,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Blood', {
 
 //Configuration
 //app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use('/', routes);
 
 
 
